@@ -6,3 +6,11 @@ spring:
           github:
             clientId: 09af1a1f39d8079e960b
             clientSecret: affc9e8519606468c44e4694a2722c0c0f25553d
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: bank
+    password: bank
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
