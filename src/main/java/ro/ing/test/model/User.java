@@ -13,6 +13,12 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity{
+    private String name;
+    private Role role;
+
+    public enum Role {
+        ADMIN, USER
+    }
 }
 
 
