@@ -12,23 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final CustomOAuth2UserService userService;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/login").permitAll()
-//                .anyRequest().authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().permitAll()
-                    .loginPage("/login")
-                .and()
-                .logout().permitAll()
-                .and()
-                .oauth2Login()
-                    .loginPage("/login")
-                    .userInfoEndpoint()
-                        .userService(userService);
+            .anyRequest().authenticated()
+            .and()
+            .oauth2Login();
     }
 }
